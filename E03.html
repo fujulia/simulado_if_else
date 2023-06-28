@@ -1,15 +1,41 @@
 <script>
     //PROBLEMA: Viajar para algum lugar
     //Peça para o usuário informar para qual estado deseja realizar a viagem. (Rio Grande do Sul-RS ou Minas Gerais-MG). Peça também para informar quantos dias ficará em viagem. O usuário também deverá informar "quantos dinheiros" (R$) possui para gastar na viagem.
-    
+
     //Considere que o custo diário de viagem para "RS" será de R$ 180,00 (180) e o custo diário de viagem para "MG" será de R$ 210,00 (210).
-    
+
     //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
 
     //ENTRADA
+    const estadoViagem = prompt('Para qual estado deseja realizar a viagem? Responda RS para Rio Grande do Sul ou MG para Minas Gerais.').trim().toLowerCase();
+    const diasViagem = Number(prompt('Informe quantos dias ficará em viagem:').trim());
+    const dinheiro = Number(prompt('Informe quanto de dinheiro possui para gastar na viagem:').trim().replace(',', '.'));
 
 
     //PROCESSAMENTO
+    if (estadoViagem === 'rs') {
+        let custo = diasViagem * 180;
+        if (dinheiro > custo) {
+            alert(`Boa vigem!\nVocê poderá ficar ${diasViagem} dia(s) em RS com um custo total de R$${custo.toFixed(2).replace('.', ',')}`);
+        }
+        else {
+            let falta = custo - dinheiro;
+            alert(`Sem férias!\nFaltam R$${falta.toFixed(2).replace('.', '.')} para você realizar a viagem!`);
+        }
+    }
+    else if (estadoViagem === 'mg') {
+        let custo = diasViagem * 210;
+        if (dinheiro > custo) {
+            alert(`Boa viagem!\nVocê poderá ficar ${diasViagem} dia(s) em MG com um custo total de R$${custo.toFixed(2).replace('.', ',')}`)
+        }
+        else {
+            let falta = custo - dinheiro;
+            alert(`Sem férias!\nFaltam R$${falta.toFixed(2).replace('.', '.')} para você realizar a viagem!`);
+        }
+    }
+    else {
+        alert('Resposta inválida!');
+    }
 
 
     //SAÍDA
