@@ -18,7 +18,7 @@
 
     //PROCESSAMENTO
     const custoTotal = (unidadeMamao * 5) + (kgMelancia * 3) + (unidadeAbacate * 4) + (kgCebola * 1.1);
-    if (custoTotal < dinheiro) {
+    if (custoTotal <= dinheiro) {
         const sobrou = dinheiro - custoTotal;
         alert(`Dinheiro suficiente para realizar a compra!\n Valor total da compra: R$${custoTotal.toFixed(2).replace('.',',')}\n Quantia de dinheiro que sobrou: R$${sobrou.toFixed(2).replace('.',',')}`);
     }
